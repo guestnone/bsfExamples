@@ -37,6 +37,10 @@ namespace bs
 	UINT32 windowResWidth = 1280;
 	UINT32 windowResHeight = 720;
 
+	// Register the log category for the example application.
+	BS_LOG_CATEGORY(GUIExampleApp, 1000)
+	BS_LOG_CATEGORY_IMPL(GUIExampleApp)
+
 	/** Set up the GUI elements and the camera. */
 	void setUpGUI()
 	{
@@ -86,7 +90,7 @@ namespace bs
 		button->onClick.connect([]()
 		{
 			// Log a message when the user clicks the button
-			LOGDBG("Button clicked!");
+			BS_LOG(Info, GUIExampleApp, "Button clicked!");
 		});
 
 		button->setPosition(10, 50);
@@ -99,11 +103,11 @@ namespace bs
 			// Log a message when the user toggles the button
 			if(enabled)
 			{
-				LOGDBG("Toggle turned on");
+				BS_LOG(Info, GUIExampleApp, "Toggle turned on");
 			}
 			else
 			{
-				LOGDBG("Toggle turned off");
+				BS_LOG(Info, GUIExampleApp, "Toggle turned off");
 			}
 		});
 
@@ -118,7 +122,7 @@ namespace bs
 		inputBox->onValueChanged.connect([](const String& value)
 		{
 			// Log a message when the user enters new text in the input box
-			LOGDBG("User entered: \"" + value + "\"");
+			BS_LOG(Info, GUIExampleApp, "User entered: \"" + value + "\"");
 		});
 
 		inputBox->setText("Type in me...");
@@ -138,7 +142,7 @@ namespace bs
 		listBox->onSelectionToggled.connect([listBoxElements](UINT32 idx, bool enabled)
 		{
 			// Log a message when the user selects a new element
-			LOGDBG("User selected element: \"" + listBoxElements[idx].getValue() + "\"");
+			BS_LOG(Info, GUIExampleApp, "User selected element: \"" + listBoxElements[idx].getValue() + "\"");
 			
 		});
 
@@ -296,6 +300,7 @@ namespace bs
 		GUILabel* customButtonLbl = mainPanel->addNewElement<GUILabel>(HString("Custom button"), "HeaderLabelStyle");
 		customButtonLbl->setPosition(800, 10);
 	}
+	
 }
 
 /** Main entry point into the application. */
