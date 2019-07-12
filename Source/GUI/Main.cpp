@@ -90,7 +90,7 @@ namespace bs
 		button->onClick.connect([]()
 		{
 			// Log a message when the user clicks the button
-			BS_LOG(Info, GUIExampleApp, "Button clicked!");
+			BS_LOG(Warning, GUIExampleApp, "Button clicked!");
 		});
 
 		button->setPosition(10, 50);
@@ -103,11 +103,11 @@ namespace bs
 			// Log a message when the user toggles the button
 			if(enabled)
 			{
-				BS_LOG(Info, GUIExampleApp, "Toggle turned on");
+				BS_LOG(Warning, GUIExampleApp, "Toggle turned on");
 			}
 			else
 			{
-				BS_LOG(Info, GUIExampleApp, "Toggle turned off");
+				BS_LOG(Warning, GUIExampleApp, "Toggle turned off");
 			}
 		});
 
@@ -122,7 +122,7 @@ namespace bs
 		inputBox->onValueChanged.connect([](const String& value)
 		{
 			// Log a message when the user enters new text in the input box
-			BS_LOG(Info, GUIExampleApp, "User entered: \"" + value + "\"");
+			BS_LOG(Warning, GUIExampleApp, "User entered: \"" + value + "\"");
 		});
 
 		inputBox->setText("Type in me...");
@@ -142,7 +142,7 @@ namespace bs
 		listBox->onSelectionToggled.connect([listBoxElements](UINT32 idx, bool enabled)
 		{
 			// Log a message when the user selects a new element
-			BS_LOG(Info, GUIExampleApp, "User selected element: \"" + listBoxElements[idx].getValue() + "\"");
+			BS_LOG(Warning, GUIExampleApp, "User selected element: \"" + listBoxElements[idx].getValue() + "\"");
 			
 		});
 
